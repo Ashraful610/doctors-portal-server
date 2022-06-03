@@ -7,20 +7,26 @@ const port = process.env.PORT || 5000
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 app.use(express.json())
-const corsConfig = {
-  origin:'*',
+const corsConfig ={
+  origin:true,
   credentials:true,
-  methods:['GET','POST','DELETE','PUT']
 }
 app.use(cors(corsConfig))
-app.options("*",
-cors(corsConfig))
+app.options('*',cors(corsConfig))
+// const corsConfig = {
+//   origin:'*',
+//   credentials:true,
+//   methods:['GET','POST','DELETE','PUT']
+// }
+// app.use(cors(corsConfig))
+// app.options("*",
+// cors(corsConfig))
 
-app.use(function(req,res,next){
-  res.header('Access-Control-Allow-Origin',"*")
-  res.header('Access-Control-Allow-Headers',"Origin,X-Requested-With,Content-Type,Accept,authorizaton")
-  next()
-})
+// app.use(function(req,res,next){
+//   res.header('Access-Control-Allow-Origin',"*")
+//   res.header('Access-Control-Allow-Headers',"Origin,X-Requested-With,Content-Type,Accept,authorizaton")
+//   next()
+// })
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.brwez.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
