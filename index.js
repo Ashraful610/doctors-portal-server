@@ -151,7 +151,7 @@ run().catch(console.dir)
 
 
 app.get('/', (req, res) => {
-  res.send('Hello doctors portal')
+  res.send('Hello doctors portal from ashraful alam')
 })
 
 app.listen(port, () => {
