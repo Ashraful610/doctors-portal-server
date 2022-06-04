@@ -13,11 +13,11 @@ app.use(express.json())
 // }
 // app.use(cors(corsConfig))
 // app.options('*',cors(corsConfig))
-const corsConfig = {
-  origin:'*',
-  credentials:true,
-  methods:['GET','POST','DELETE','PUT']
-}
+// const corsConfig = {
+//   origin:'*',
+//   credentials:true,
+//   methods:['GET','POST','DELETE','PUT']
+// }
 app.use(cors({origin:'*'}))
 
 
